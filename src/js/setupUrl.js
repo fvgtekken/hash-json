@@ -1,17 +1,36 @@
-export function setupUrl(element, eleButton) {
-  console.log('Heloo HASH');
+const getURlParams = (queryString) => {
+  const ObjHash = {};
+  const queryParams = new URLSearchParams(queryString);
+  queryParams.forEach((value, key) => {
+    ObjHash[key] = value;
+  });
+
+  return ObjHash;
+};
+
+const getHashUrl = (formatParts, urlMatch) => {
+  const ObjHash = {};
+
+  for (const [index, label] of formatParts.entries()) {
+    let sLabel = label.includes(':') ? label : undefined;
+
+    if (sLabel) {
+      sLabel = sLabel.substring(1);
+      ObjHash[sLabel] = urlMatch[index];
+    }
+  }
+  return ObjHash;
+};
+
+export function setupUrl(urlFormat, urlInstance) {
+  const formatParts = urlFormat.split('/');
+  let [urlMatch, queryString] = urlInstance.split('?');
+  urlMatch = urlMatch.split('/');
+
+  const objHas1 = getURlParams(queryString);
+  const objHas2 = getHashUrl(formatParts, urlMatch);
+
+  const ObjHash = { ...objHas1, ...objHas2 };
+
+  console.log('ObjHash Ready!', ObjHash);
 }
-
-/*
-  element.addEventListener('input', (e) => {
-    const animal = e.target.name;
-    validateInput(e);
-    addText(e, animal);
-  });
-
-  eleButton.addEventListener('click', (e) => {
-    const animal = e.target.name;
-    callMe(animal);
-  });
-
-*/
