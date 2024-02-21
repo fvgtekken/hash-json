@@ -22,15 +22,24 @@ const getHashUrl = (formatParts, urlMatch) => {
   return ObjHash;
 };
 
-export function setupUrl(urlFormat, urlInstance) {
-  const formatParts = urlFormat.split('/');
-  let [urlMatch, queryString] = urlInstance.split('?');
-  urlMatch = urlMatch.split('/');
+export function setupUrl(objParams) {
+  const { urlFormat, urlInstance, eleButton, eleContent } = objParams;
 
-  const objHas1 = getURlParams(queryString);
-  const objHas2 = getHashUrl(formatParts, urlMatch);
+  eleButton.addEventListener('click', (e) => {
+    console.log('give me the solution');
 
-  const ObjHash = { ...objHas1, ...objHas2 };
+    const formatParts = urlFormat.split('/');
+    let [urlMatch, queryString] = urlInstance.split('?');
+    urlMatch = urlMatch.split('/');
 
-  console.log('ObjHash Ready!', ObjHash);
+    const objHas1 = getURlParams(queryString);
+    const objHas2 = getHashUrl(formatParts, urlMatch);
+
+    const ObjHash = { ...objHas1, ...objHas2 };
+    const content = JSON.stringify(ObjHash);
+    eleContent.innerHTML = `<p class="pSolution">${content}</p>`;
+
+    console.log('ObjHash Ready!', ObjHash, eleContent);
+  });
 }
+//

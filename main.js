@@ -14,10 +14,25 @@ document.querySelector('#app').innerHTML = `
     <div>
     <h1>Welcome to Rotunda Software Hash Url</h1>
     </div>
+    <div>
+      <button id="bhash" name="hash" class="buttonSolution">Get Solution!</button></div></div>
     </div>
+    
+    <div  id="contentSolution"></div>
+
 `;
 
 const urlFormat = '/:version/api/:collection/:id';
 const urlInstance = '/6/api/listings/3?sort=desc&limit=10';
-setupUrl(urlFormat, urlInstance);
+const eleButton = document.querySelector(`#bhash`);
+const eleContent = document.querySelector(`#contentSolution`);
+
+const objParams = {
+  urlFormat,
+  urlInstance,
+  eleButton,
+  eleContent,
+};
+
+setupUrl(objParams);
 setupUrl2();
