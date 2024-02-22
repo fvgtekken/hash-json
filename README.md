@@ -1,4 +1,5 @@
 Rotunda Software
+
 URL Parser Exercise
 We need some logic that extracts the variable parts of a url into a hash. The keys
 of the extract hash will be the "names" of the variable parts of a url, and the
