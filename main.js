@@ -1,5 +1,4 @@
 import { setupUrl } from './src/js/setupUrl';
-import { setupUrl2 } from './src/js/setupUrl2';
 import './src/css/normalize.css';
 import './src/css/app.css';
 
@@ -8,17 +7,14 @@ import './src/css/app.css';
 */
 
 document.querySelector('#app').innerHTML = `
-    
    <div class="container">
-    <div>
-    <h1>Welcome to Rotunda Software Hash Url</h1>
-    </div>
-    <div>
-      <button id="bhash" name="hash" class="button">Get Solution!</button></div></div>
-    </div>
-    
+      <div>
+       <h1>Welcome to Rotunda Software Hash Url</h1>
+      </div>
+      <div>
+        <button id="bhash" name="hash" class="button">Get Solution!</button></div></div>
+      </div>
     <div  id="contentSolution"></div>
-
 `;
 
 const urlFormat = '/:version/api/:collection/:id';
@@ -34,5 +30,3 @@ const objParams = {
 };
 
 setupUrl(objParams);
-//Alternative Solution (Another version)
-setupUrl2();

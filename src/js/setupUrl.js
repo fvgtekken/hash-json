@@ -1,4 +1,4 @@
-const getURlParams = (queryString) => {
+const getUrlParams = (queryString) => {
   const ObjHash = {};
 
   const queryParams = new URLSearchParams(queryString);
@@ -12,12 +12,12 @@ const getURlParams = (queryString) => {
 const getHashUrl = (formatParts, urlMatch) => {
   const ObjHash = {};
 
-  for (const [index, label] of formatParts.entries()) {
-    let sLabel = label.includes(':') ? label : undefined;
+  for (const [index, part] of formatParts.entries()) {
+    let sPart = part.includes(':') ? part : undefined;
 
-    if (sLabel) {
-      sLabel = sLabel.substring(1);
-      ObjHash[sLabel] = urlMatch[index];
+    if (sPart) {
+      sPart = sPart.substring(1);
+      ObjHash[sPart] = urlMatch[index];
     }
   }
   return ObjHash;
@@ -33,7 +33,7 @@ export function setupUrl(objParams) {
     let [urlMatch, queryString] = urlInstance.split('?');
     urlMatch = urlMatch.split('/');
 
-    const objHas1 = getURlParams(queryString);
+    const objHas1 = getUrlParams(queryString);
     const objHas2 = getHashUrl(formatParts, urlMatch);
 
     const ObjHash = { ...objHas1, ...objHas2 };
