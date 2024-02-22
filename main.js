@@ -4,18 +4,17 @@ import './src/css/normalize.css';
 import './src/css/app.css';
 
 /*
-
- <img src="${logoMain2}" alt="logoInte" />
+  Pure Js and html with vite (spa version like zoo)
 */
 
 document.querySelector('#app').innerHTML = `
     
-   <div class="containerLogo">
+   <div class="container">
     <div>
     <h1>Welcome to Rotunda Software Hash Url</h1>
     </div>
     <div>
-      <button id="bhash" name="hash" class="buttonSolution">Get Solution!</button></div></div>
+      <button id="bhash" name="hash" class="button">Get Solution!</button></div></div>
     </div>
     
     <div  id="contentSolution"></div>
@@ -35,4 +34,5 @@ const objParams = {
 };
 
 setupUrl(objParams);
+//Alternative Solution (Another version)
 setupUrl2();

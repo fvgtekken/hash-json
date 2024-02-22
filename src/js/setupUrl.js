@@ -1,5 +1,6 @@
 const getURlParams = (queryString) => {
   const ObjHash = {};
+
   const queryParams = new URLSearchParams(queryString);
   queryParams.forEach((value, key) => {
     ObjHash[key] = value;
@@ -26,7 +27,7 @@ export function setupUrl(objParams) {
   const { urlFormat, urlInstance, eleButton, eleContent } = objParams;
 
   eleButton.addEventListener('click', (e) => {
-    console.log('give me the solution');
+    //console.log('give me the solution');
 
     const formatParts = urlFormat.split('/');
     let [urlMatch, queryString] = urlInstance.split('?');
