@@ -10,12 +10,16 @@ values of the hash will be the values. We will be supplied with:
    of a url are separated with "/". All variable parts begin with a colon. Here is
    an example of such a url format string:
    '/:version/api/:collection/:id'
+
 2. A particular ​url instance​ that is ​guaranteed​ to have the format given by
-   the url format string. It may also contain url parameters. For example,
-   given the example url format string above, the url instance might be:
+   the url format string. It may also contain url parameters.
+
+   For example,given the example url format string above, the url instance might be:
    '/6/api/listings/3?sort=desc&limit=10'
+
    Given this example url format string and url instance, the hash we want that
    maps all the variable parts of the url instance to their values would look like this:
+
    {
    version: 6,
    collection: 'listings',
@@ -23,6 +27,7 @@ values of the hash will be the values. We will be supplied with:
    sort: 'desc',
    limit: 10
    }
+
    Please implement a solution to this problem in JavaScript ​with attention to code
    structure and readability​. Feel free to use low-level libraries like Lodash.
 
